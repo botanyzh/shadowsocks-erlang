@@ -59,8 +59,8 @@
 %% @spec start_link() -> {ok, Pid} | ignore | {error, Error}
 %% @end
 %%--------------------------------------------------------------------
-start_link(Socket, Info) ->
-    proc_lib:start_link(?MODULE, init, [Socket, Info]).
+start_link(Socket, Info, Timeout, Options) ->
+    proc_lib:start_link(?MODULE, init, [Socket, Info], Timeout, Options).
     %% gen_server:start_link({local, ?SERVER}, ?MODULE, [], []).
 
 init(Socket, {Port, Server, OTA, Type, {Method,Password}}) ->
